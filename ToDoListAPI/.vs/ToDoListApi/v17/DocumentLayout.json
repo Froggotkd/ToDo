@@ -1,33 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\todolistapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\todolistapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\todolistapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todolist\\todolistapi\\todolistapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|c:\\users\\user\\documents\\todo\\todo-dotnet\\todolistapi\\todolistapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37001448-4020-42B7-A9DC-AD8357B3407A}|ToDoListApi\\ToDoListApi.csproj|solutionrelative:todolistapi\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -43,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\.gitignore",
+              "RelativeDocumentMoniker": "ToDoListApi\\.gitignore",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\.gitignore",
+              "RelativeToolTip": "ToDoListApi\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-10T21:16:15.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TasksController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListApi\\ToDoListApi\\Controllers\\TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Controllers\\TasksController.cs",
               "RelativeDocumentMoniker": "ToDoListApi\\Controllers\\TasksController.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListApi\\ToDoListApi\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Controllers\\TasksController.cs",
               "RelativeToolTip": "ToDoListApi\\Controllers\\TasksController.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAA0wAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T14:08:39.924Z",
               "EditorCaption": ""
@@ -57,9 +70,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\appsettings.json",
               "RelativeDocumentMoniker": "ToDoListApi\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\appsettings.json",
               "RelativeToolTip": "ToDoListApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -68,24 +81,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Program.cs",
-              "RelativeDocumentMoniker": "ToDoListApi\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Program.cs",
-              "RelativeToolTip": "ToDoListApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T14:02:19.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Models\\ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "ToDoListApi\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Models\\ApplicationUser.cs",
               "RelativeToolTip": "ToDoListApi\\Models\\ApplicationUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -96,9 +96,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ToDoListApi.http",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\ToDoListApi.http",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\ToDoListApi.http",
               "RelativeDocumentMoniker": "ToDoListApi\\ToDoListApi.http",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\ToDoListApi.http",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\ToDoListApi.http",
               "RelativeToolTip": "ToDoListApi\\ToDoListApi.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
@@ -109,9 +109,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ToDoListApi\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Properties\\launchSettings.json",
               "RelativeToolTip": "ToDoListApi\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -122,9 +122,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "ToDoListApi\\WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\ToDoList\\ToDoListAPI\\ToDoListApi\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\WeatherForecast.cs",
               "RelativeToolTip": "ToDoListApi\\WeatherForecast.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

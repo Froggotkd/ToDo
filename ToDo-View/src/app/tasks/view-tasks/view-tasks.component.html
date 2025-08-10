@@ -1,0 +1,10 @@
+@if (tasks.length === 0) {
+
+  <h2>No tasks available</h2>
+} @else {
+  @for (task of tasks; track task.id) {
+    <h2>{{ task.id }}</h2>
+    <p>{{task.title}} </p>
+  }
+}
+
