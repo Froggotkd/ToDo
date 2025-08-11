@@ -17,8 +17,10 @@ export class TasksService{
   constructor(private httpClient: HttpClient){
   }
 
+  private baseUrl = 'https://localhost:7243/api/Tasks'
+
   getTasks():Observable<Tasks[]>{
-    return this.httpClient.get<Tasks[]>('https://localhost:7243/api/Tasks').pipe(
+    return this.httpClient.get<Tasks[]>(this.baseUrl).pipe(
       catchError((error) => {
         if(error.status === 404) {
           console.error('Tasks not found', error);
@@ -26,5 +28,13 @@ export class TasksService{
         throw error;
       })
     )
+  }
+
+  createTask(task: Tasks): Observable<Tasks> {
+    return this.httpClient.post<Tasks>(this.baseUrl, task);
+  }
+
+  updateTask(id: number, task: Tasks): Observable<Tasks> {
+    return this.httpClient.put<Tasks>(`${this.baseUrl}/${id}`, task);
   }
 }

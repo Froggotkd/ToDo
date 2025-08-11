@@ -1,18 +1,17 @@
 .background {
   position: relative;
-  height: 90vh;
+  height: 100%;
 }
 
 .background::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-image: url('https://media.istockphoto.com/id/615101444/photo/sunbeams-in-dark-and-foggy-autumn-forest.jpg?s=612x612&w=0&k=20&c=p98_vuWBCUiC-vH4EyifqCcS5XWoU5o6u4XOWmL86qM=');
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
   filter: blur(5px);
   z-index: -1;
   opacity: 0.7;
@@ -21,7 +20,7 @@
 .task-list-container {
   padding: 20px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 10px 10px ;
 }
 
 .header-card {

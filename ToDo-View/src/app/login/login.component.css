@@ -65,7 +65,6 @@
     font-weight: 600;
 }
 
-/* Form groups */
 .form-group {
     margin-bottom: 20px;
 }
@@ -96,14 +95,12 @@
     border-color: var(--error);
 }
 
-/* Validation messages */
 .validation-error {
     color: var(--error);
     font-size: 14px;
     margin-top: 5px;
 }
 
-/* Submit button */
 .submit-btn {
     width: 100%;
     padding: 14px;

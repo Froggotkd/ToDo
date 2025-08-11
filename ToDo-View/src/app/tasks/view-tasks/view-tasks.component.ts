@@ -6,11 +6,12 @@ import { MatCard } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { trigger, transition, style, animate } from '@angular/animations';
 import { RouterLink } from '@angular/router';
-
+import { TaskFormComponent } from '../task-form/task-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-tasks',
-  imports: [TaskCardComponent, MatCard, MatIconModule, RouterLink],
+  imports: [TaskCardComponent, MatCard, MatIconModule],
   templateUrl: './view-tasks.component.html',
   styleUrls: ['./view-tasks.component.css'],
   providers: [TasksService],
@@ -29,7 +30,8 @@ import { RouterLink } from '@angular/router';
 export class ViewTasksComponent implements OnInit {
   tasks: Tasks[] = [];
   isEmpty = true;
-  constructor(private tasksService: TasksService) { }
+  isEdit: any;
+  constructor(private tasksService: TasksService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.loadTasks();
@@ -42,6 +44,25 @@ export class ViewTasksComponent implements OnInit {
     });
   }
 
+  openTaskDialog(task?: any): void {
+    const dialogRef = this.dialog.open(TaskFormComponent, {
+      width: '500px',
+      data: {
+        isEdit: !!task,  
+        task: task       
+      }
+    });
 
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        if (this.isEdit) {
+          // Lógica para actualizar la tarea
+        } else {
+          // Lógica para crear nueva tarea
+        }
+      }
+    });
+
+  }
 }
-

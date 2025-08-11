@@ -1,0 +1,39 @@
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-dialog-content {
+  padding: 16px 0;
+}
+
+mat-slide-toggle {
+  margin: 10px 0 20px;
+  display: block;
+}
+
+mat-icon[matPrefix] {
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.cancel-button{
+  color: white;
+  background-color: var(--error);
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 0px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.save-button{
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}

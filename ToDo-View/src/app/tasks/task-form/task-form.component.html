@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>
+  {{ isEditMode ? 'Editar Tarea' : 'Crear Nueva Tarea' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="taskForm!" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-icon matPrefix>title</mat-icon>
+      <mat-error *ngIf="taskForm?.get('title')?.hasError('required')">
+        El título es requerido
+      </mat-error>
+      <mat-error *ngIf="taskForm?.get('title')?.hasError('maxlength')">
+        Máximo 100 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput formControlName="description" rows="4"></textarea>
+      <mat-icon matPrefix>description</mat-icon>
+      <mat-error *ngIf="taskForm?.get('description')?.hasError('maxlength')">
+        Máximo 500 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="isCompleted" color="primary">
+      {{ taskForm? taskForm.get('isCompleted')?.value ? 'Completada' : 'Pendiente'  : ''}}
+    </mat-slide-toggle>
+
+    <mat-dialog-actions align="end">
+      <button mat-button type="button" class="cancel-button" (click)="onCancel()">Cancelar</button>
+      <button 
+        mat-raised-button 
+        color="primary" 
+         [disabled]="taskForm.invalid || !taskForm"
+         class="save-button"
+         (click)="onSubmit()"
+      >
+        {{ isEditMode ? 'Actualizar' : 'Crear' }}
+      </button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
