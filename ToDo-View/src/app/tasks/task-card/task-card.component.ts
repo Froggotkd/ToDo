@@ -6,11 +6,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskFormComponent } from '../task-form/task-form.component';
 
+export interface Task {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  completado: boolean;
+}
 
 @Component({
   selector: 'app-task-card',
-  imports: [CommonModule, MatCardModule,MatCheckboxModule,MatButtonModule,MatIconModule, MatDividerModule],
+  imports: [CommonModule, MatCardModule, MatCheckboxModule, MatButtonModule, MatIconModule, MatDividerModule],
   templateUrl: './task-card.component.html',
   styleUrl: './task-card.component.css',
   animations: [
@@ -32,24 +40,25 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class TaskCardComponent {
- @Input() id: number = 0;
+
+  @Input() id: number = 0;
   @Input() titulo: string = '';
   @Input() descripcion: string = '';
   @Input() completado: boolean = false;
 
-  @Output() toggleCompletado = new EventEmitter<string>();
-  @Output() editar = new EventEmitter<string>();
-  @Output() eliminar = new EventEmitter<string>();
+  constructor(private dialog: MatDialog) { }
 
-  onToggleCompletado() {
-    this.toggleCompletado.emit(this.id.toString());
-  }
-
-  onEditar() {
-    this.editar.emit(this.id.toString());
-  }
-
-  onEliminar() {
-    this.eliminar.emit(this.id.toString());
+  openTaskDialog(id: number, titulo: string, descripcion: string, completado: boolean): void {
+    const dialogRef = this.dialog.open(TaskFormComponent, {
+      width: '500px',
+      data: {
+        task: {
+          id: id,
+          title: titulo,
+          description: descripcion,
+          isCompleted: completado
+        }
+      }
+    });
   }
 }

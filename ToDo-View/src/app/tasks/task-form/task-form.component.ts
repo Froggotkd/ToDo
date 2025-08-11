@@ -7,15 +7,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import {TasksService, Tasks} from '../../../services/tasks-service'
+import { TasksService, Tasks } from '../../../services/tasks-service'
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],
-  imports: [MatDialogContent, MatSlideToggleModule, MatIcon,MatFormFieldModule, ReactiveFormsModule, MatDialogModule, CommonModule, MatInputModule, MatIconModule]
+  imports: [MatDialogContent, MatSlideToggleModule, MatIcon, MatFormFieldModule, ReactiveFormsModule, MatDialogModule, CommonModule, MatInputModule, MatIconModule]
 })
-export class TaskFormComponent  {
+export class TaskFormComponent {
   taskForm: FormGroup;
   isEditMode: boolean;
   isSubmitting = false;
@@ -24,7 +25,8 @@ export class TaskFormComponent  {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<TaskFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { task?: Tasks },
-    private taskService: TasksService
+    private taskService: TasksService,
+    private router: Router
   ) {
     this.isEditMode = !!data.task;
 
@@ -36,7 +38,7 @@ export class TaskFormComponent  {
   }
 
   onSubmit(): void {
-    if (this.taskForm.invalid|| this.isSubmitting) return;
+    if (this.taskForm.invalid || this.isSubmitting) return;
     this.isSubmitting = true;
     const taskData: Tasks = {
       id: this.isEditMode ? this.data.task!.id : -1,
@@ -54,9 +56,13 @@ export class TaskFormComponent  {
       },
       error: (error: Error) => {
         console.error('Error guardando tarea', error);
-        this.isSubmitting = true;
+        this.isSubmitting = false;
       }
     });
+    this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['']);
+    });
+
   }
 
   onCancel(): void {

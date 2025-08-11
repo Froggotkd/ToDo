@@ -7,7 +7,6 @@
     <mat-card-title class="task-title">
       <mat-checkbox
         [checked]="completado"
-        (change)="onToggleCompletado()"
         color="primary"
         class="task-checkbox"
       >
@@ -26,7 +25,7 @@
   <mat-card-actions align="end" class="task-actions">
     <button 
       mat-icon-button 
-      (click)="onEditar()" 
+      (click)="openTaskDialog(id, titulo,descripcion,completado)" 
       matTooltip="Editar tarea"
       class="action-button"
     >
@@ -34,7 +33,6 @@
     </button>
     <button 
       mat-icon-button 
-      (click)="onEliminar()" 
       color="warn"
       matTooltip="Eliminar tarea"
       class="action-button"

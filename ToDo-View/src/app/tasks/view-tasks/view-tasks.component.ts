@@ -1,11 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TasksService, Tasks } from '../../../services/tasks-service';
 import { TaskCardComponent } from "../task-card/task-card.component";
 import { MatCard } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { trigger, transition, style, animate } from '@angular/animations';
-import { RouterLink } from '@angular/router';
 import { TaskFormComponent } from '../task-form/task-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -54,15 +52,6 @@ export class ViewTasksComponent implements OnInit {
     });
 
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        if (this.isEdit) {
-          // Lógica para actualizar la tarea
-        } else {
-          // Lógica para crear nueva tarea
-        }
-      }
-    });
 
   }
 }
