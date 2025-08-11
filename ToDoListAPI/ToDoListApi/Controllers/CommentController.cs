@@ -40,6 +40,19 @@ namespace ToDoListApi.Controllers
             return Ok(comment);
         }
 
+        [HttpGet("replies/{commentId}")]
+        public async Task<ActionResult<List<CommentOnTask>>> GetReplies(int commentId)
+        {
+            var replies = await _context.Comments
+                .Where(c => c.ParentCommentId == commentId)
+                .ToListAsync();
+
+            if (!replies.Any())
+                return NotFound(); 
+
+            return Ok(replies);
+        }
+
 
         [HttpPost()]
         public async Task<ActionResult<CommentOnTaskDTO>> CreateComment(CreateCommentDTO createCommentDTO)
@@ -106,7 +119,6 @@ namespace ToDoListApi.Controllers
                 taskId = comment.TaskId,
                 isUpdated = comment.isUpdated,
                 ParentCommentId = comment.ParentCommentId,
-                Replies = comment.Replies.Select(MapToDto).ToList()
                 
             };
         }

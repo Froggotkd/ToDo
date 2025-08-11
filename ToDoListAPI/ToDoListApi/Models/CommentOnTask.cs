@@ -12,7 +12,6 @@ namespace ToDoListApi.Models
 
         public int? ParentCommentId { get; set; }
         public CommentOnTask ParentComment { get; set; }
-        public ICollection<CommentOnTask> Replies { get; set; } = new List<CommentOnTask>();
 
 
     }

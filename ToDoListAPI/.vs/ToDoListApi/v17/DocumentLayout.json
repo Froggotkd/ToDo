@@ -62,8 +62,7 @@
               "RelativeToolTip": "ToDoListApi\\Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T23:15:45.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T23:15:45.452Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "ToDoListApi\\DTO\\CommentOnTaskDTO.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAADwvxQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T22:46:53.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T22:46:53.147Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "ToDoListApi\\Models\\CommentOnTask.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T21:56:44.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T21:56:44.046Z"
             },
             {
               "$type": "Document",
@@ -99,7 +96,7 @@
               "RelativeDocumentMoniker": "ToDoListApi\\Controllers\\CommentController.cs",
               "ToolTip": "C:\\Users\\User\\Documents\\ToDO\\ToDo-Dotnet\\ToDoListAPI\\ToDoListApi\\Controllers\\CommentController.cs",
               "RelativeToolTip": "ToDoListApi\\Controllers\\CommentController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAIwFkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAowDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T21:21:04.618Z",
               "EditorCaption": ""
@@ -114,8 +111,7 @@
               "RelativeToolTip": "ToDoListApi\\Controllers\\TasksController.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAcwD8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T14:08:39.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T14:08:39.924Z"
             },
             {
               "$type": "Document",
