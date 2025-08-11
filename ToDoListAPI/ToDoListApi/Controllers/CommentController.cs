@@ -85,6 +85,18 @@ namespace ToDoListApi.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteComment(int id)
+        {
+            var comment = await _context.Comments.FindAsync(id);
+            if (comment == null) return NotFound();
+
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         private static CommentOnTaskDTO MapToDto(CommentOnTask comment)
         {
             return new CommentOnTaskDTO
