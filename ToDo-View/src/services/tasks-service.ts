@@ -37,4 +37,16 @@ export class TasksService{
   updateTask(id: number, task: Tasks): Observable<Tasks> {
     return this.httpClient.put<Tasks>(`${this.baseUrl}/${id}`, task);
   }
+
+  deleteTask(id: number):Observable<void>{
+    return this.httpClient.delete<void>(`${this.baseUrl}/${id}`).pipe(
+      catchError((error) => {
+        if(error.status === 404) {
+          console.error('Task not found', error);
+        }
+        throw error;
+      })
+    );
+
+  }
 }

@@ -8,6 +8,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskFormComponent } from '../task-form/task-form.component';
+import { TasksService } from '../../../services/tasks-service';
+import { Router } from '@angular/router';
 
 export interface Task {
   id: number;
@@ -41,12 +43,14 @@ export interface Task {
 })
 export class TaskCardComponent {
 
+
   @Input() id: number = 0;
   @Input() titulo: string = '';
   @Input() descripcion: string = '';
   @Input() completado: boolean = false;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private taskService: TasksService, private router: Router
+  ) { }
 
   openTaskDialog(id: number, titulo: string, descripcion: string, completado: boolean): void {
     const dialogRef = this.dialog.open(TaskFormComponent, {
@@ -60,5 +64,23 @@ export class TaskCardComponent {
         }
       }
     });
+  }
+
+  onDelete(id: number): void {
+    if (confirm('¿Estás seguro de eliminar esta tarea?')) {
+      const request$ = this.taskService.deleteTask(id);
+
+      request$.subscribe({
+        next: () => {
+          this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['']);
+          });
+        },
+        error: (error) => {
+          console.error('Error deleting task:', error);
+        }
+      }
+      );
+    }
   }
 }
