@@ -11,8 +11,8 @@ using ToDoListApi.Data;
 namespace ToDoListApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250810151743_Initial")]
-    partial class Initial
+    [Migration("20250810231005_crearDesde0")]
+    partial class crearDesde0
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,8 +49,6 @@ namespace ToDoListApi.Migrations
 
                     b.HasIndex("ParentCommentId");
 
-                    b.HasIndex("TaskId");
-
                     b.ToTable("Comments");
                 });
 
@@ -84,13 +82,7 @@ namespace ToDoListApi.Migrations
                         .WithMany("Replies")
                         .HasForeignKey("ParentCommentId");
 
-                    b.HasOne("ToDoListApi.Models.Tasks", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskId");
-
                     b.Navigation("ParentComment");
-
-                    b.Navigation("Task");
                 });
 
             modelBuilder.Entity("ToDoListApi.Models.CommentOnTask", b =>

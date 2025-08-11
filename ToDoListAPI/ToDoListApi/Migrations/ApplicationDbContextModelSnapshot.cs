@@ -46,8 +46,6 @@ namespace ToDoListApi.Migrations
 
                     b.HasIndex("ParentCommentId");
 
-                    b.HasIndex("TaskId");
-
                     b.ToTable("Comments");
                 });
 
@@ -81,13 +79,7 @@ namespace ToDoListApi.Migrations
                         .WithMany("Replies")
                         .HasForeignKey("ParentCommentId");
 
-                    b.HasOne("ToDoListApi.Models.Tasks", "Task")
-                        .WithMany()
-                        .HasForeignKey("TaskId");
-
                     b.Navigation("ParentComment");
-
-                    b.Navigation("Task");
                 });
 
             modelBuilder.Entity("ToDoListApi.Models.CommentOnTask", b =>
