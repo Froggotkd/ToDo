@@ -1,0 +1,45 @@
+<mat-card 
+  [class.completed]="completado"
+  [@cardAnimation]="completado ? 'completed' : 'active'"
+  class="task-card"
+>
+  <mat-card-header>
+    <mat-card-title class="task-title">
+      <mat-checkbox
+        [checked]="completado"
+        (change)="onToggleCompletado()"
+        color="primary"
+        class="task-checkbox"
+      >
+        <span class="title-text">{{ titulo }}</span>
+      </mat-checkbox>
+    </mat-card-title>
+   
+  </mat-card-header>
+
+  <mat-card-content class="task-content">
+    <p>{{ descripcion }}</p>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions align="end" class="task-actions">
+    <button 
+      mat-icon-button 
+      (click)="onEditar()" 
+      matTooltip="Editar tarea"
+      class="action-button"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button 
+      mat-icon-button 
+      (click)="onEliminar()" 
+      color="warn"
+      matTooltip="Eliminar tarea"
+      class="action-button"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

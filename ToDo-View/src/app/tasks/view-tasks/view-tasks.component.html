@@ -1,10 +1,31 @@
-@if (tasks.length === 0) {
+<div class="background">
+  <div class="task-list-container">
+    <mat-card class="header-card">
+      <div class="header-content">
+        <mat-icon class="header-icon">check_circle</mat-icon>
+        <h1>Mis Tareas</h1>
+        <span class="task-count">{{tasks.length}} tarea(s)</span>
+      </div>
+    </mat-card>
 
-  <h2>No tasks available</h2>
-} @else {
-  @for (task of tasks; track task.id) {
-    <h2>{{ task.id }}</h2>
-    <p>{{task.title}} </p>
-  }
-}
-
+    <div class="task-container">
+      @if (tasks.length === 0) {
+      <div class="empty-state">
+        <mat-icon class="empty-icon">assignment</mat-icon>
+        <h2>No hay tareas disponibles</h2>
+        <p>Comienza agregando una nueva tarea</p>
+        <button mat-raised-button color="primary">
+          <mat-icon>add</mat-icon>
+          Agregar Tarea
+        </button>
+      </div>
+      } @else {
+      @for (task of tasks; track task.id) {
+      <app-task-card [id]="task.id" [titulo]="task.title" [descripcion]="task.description"
+        [completado]="task.isCompleted" [@fadeInOut]>
+      </app-task-card>
+      }
+      }
+    </div>
+  </div>
+</div>
