@@ -1,3 +1,91 @@
+/* Estilos generales de la barra de herramientas */
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo del título */
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+  color: var(--primary-color);
+}
+
+.title:hover {
+  transform: scale(1.02);
+}
+
+/* Mensaje de bienvenida */
+.welcome {
+  font-size: 1rem;
+  margin-left: 16px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Espaciador flexible */
 .spacer {
   flex: 1 1 auto;
+}
+
+/* Estilo del botón de login/logout */
+.btnLogin {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btnLogin:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Efecto activo para el botón */
+.btnLogin:active {
+  transform: translateY(0);
+}
+
+/* Media queries para responsive */
+@media (max-width: 600px) {
+  mat-toolbar {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .welcome {
+    font-size: 0.85rem;
+    margin-left: 8px;
+  }
+  
+  .btnLogin {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btnLogin:focus {
+  animation: pulse 0.5s ease;
+  outline: none;
 }

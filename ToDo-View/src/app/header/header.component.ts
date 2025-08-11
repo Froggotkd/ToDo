@@ -1,15 +1,38 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-header',
-  imports: [MatToolbarModule,
-    MatButtonModule, RouterLink],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    RouterModule, 
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  user: string | null = null;
 
+  constructor(private router: Router, private authService: AuthService) {
+    this.updateUser();
+  }
+
+  private updateUser(): void {
+    this.user = localStorage.getItem('userName');
+  }
+
+  handleAuthAction(): void {
+    if (this.user) {
+      this.authService.logout();
+      this.user = null; 
+    }
+    this.router.navigate(['/login']);
+  }
 }

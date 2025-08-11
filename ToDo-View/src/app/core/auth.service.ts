@@ -16,6 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(userNameOrEmail: string, password: string) {
+    
     return this.http.post<AuthResponse>(`${this.api}/Auth/login`, { userNameOrEmail, password });
   }
 
@@ -28,7 +29,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('expiresAt');
-    localStorage.removeItem('userName');
+    localStorage.setItem('userName', '');
     this.router.navigateByUrl('/login');
   }
 

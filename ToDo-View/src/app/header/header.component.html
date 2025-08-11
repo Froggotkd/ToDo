@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
-  <span routerLink="">📝 Mi To-Do List</span>
+  <div class="title" routerLink=""><strong>TaskIt</strong></div>
+  <div class="welcome" *ngIf="user">Bienvenido {{ user }}</div>
   <span class="spacer"></span>
-  <button mat-raised-button color="accent" routerLink="/login">
-    Iniciar sesión
+  <button class="btnLogin" mat-button (click)="handleAuthAction()">
+    {{ user ? 'Cerrar Sesión' : 'Iniciar Sesión' }}
   </button>
 </mat-toolbar>

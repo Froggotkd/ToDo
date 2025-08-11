@@ -1,0 +1,186 @@
+.login-background {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/026/181/984/small_2x/landscape-green-mountains-top-view-background-ai-generated-photo.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.login {
+    max-width: 360px;
+    margin: 40px auto;
+    display: block
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 20px;
+    justify-items: center;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff8a;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: fadeIn 0.5s ease;
+    justify-items: center;
+}
+
+.logo {
+    text-align: center;
+}
+
+.person {
+    color: var(--primary-color);
+    font-size: 50px;
+    padding: 20px;
+}
+
+.logo h2 {
+    margin-top: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    min-width: 300px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+    outline: none;
+}
+
+.form-group input.invalid {
+    border-color: var(--error);
+}
+
+/* Validation messages */
+.validation-error {
+    color: var(--error);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    position: relative;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.submit-btn:disabled {
+    background-color: #9fa8da;
+    cursor: not-allowed;
+}
+
+.submit-btn.loading {
+    color: transparent;
+}
+
+/* Spinner animation */
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* Error message */
+.error-message {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #ffebee;
+    border-left: 4px solid var(--error);
+    color: var(--error);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px;
+    }
+}
