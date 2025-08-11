@@ -21,23 +21,28 @@ namespace ToDoListApi.Controllers
         [HttpGet("{taskId}")]
         public async Task<ActionResult<List<CommentOnTask>>> GetAllComments(int taskId)
         {
-            var taskExists = await _context.Tasks.AnyAsync(t => t.Id == taskId);
-            var comments = new List<CommentOnTask>();
-            if (taskExists)
-            {
-                comments = await _context.Comments.Where(c => c.TaskId == taskId)
+            var comments = await _context.Comments
+                    .Where(c => c.TaskId == taskId)
+                    .Select(c => new CommentOnTaskDTO
+                    {
+                        Id = c.Id,
+                        Comment = c.Comment,
+                        taskId = c.TaskId,
+                        isUpdated = c.isUpdated,
+                        ParentCommentId = c.ParentCommentId
+                    })
                     .ToListAsync();
-            }
 
             return Ok(comments);
+
         }
 
         [HttpGet("commentById/{commentId}")]
         public async Task<ActionResult<CommentOnTask>> GetCommentById(int commentId)
         {
-            var comment = await _context.Comments.FindAsync(commentId);
-            if (comment == null) return NotFound();
-            return Ok(comment);
+            return await _context.Comments.FindAsync(commentId) is { } comment
+                ? Ok(comment)
+                : NotFound();
         }
 
         [HttpGet("replies/{commentId}")]
@@ -47,11 +52,9 @@ namespace ToDoListApi.Controllers
                 .Where(c => c.ParentCommentId == commentId)
                 .ToListAsync();
 
-            if (!replies.Any())
-                return NotFound(); 
-
             return Ok(replies);
         }
+
 
 
         [HttpPost()]
@@ -60,9 +63,9 @@ namespace ToDoListApi.Controllers
             if (createCommentDTO.ParentCommentId.HasValue && createCommentDTO.ParentCommentId.Value != -1)
             {
                 var parentComment = await _context.Comments
-                    .FirstOrDefaultAsync(c => c.Id == createCommentDTO.ParentCommentId.Value);
+                    .AnyAsync(c => c.Id == createCommentDTO.ParentCommentId.Value);
 
-                if (parentComment == null)
+                if (!parentComment)
                 {
                     return NotFound("El comentario padre no existe");
                 }
@@ -119,7 +122,7 @@ namespace ToDoListApi.Controllers
                 taskId = comment.TaskId,
                 isUpdated = comment.isUpdated,
                 ParentCommentId = comment.ParentCommentId,
-                
+                Replies = comment.Replies.Select(MapToDto).ToList()
             };
         }
 

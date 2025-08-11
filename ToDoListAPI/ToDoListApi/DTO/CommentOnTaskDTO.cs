@@ -11,6 +11,7 @@ namespace ToDoListApi.DTO
 
         public int taskId { get; set; }
         public int? ParentCommentId { get; set; }
+        public List<CommentOnTaskDTO> Replies { get; set; } = new List<CommentOnTaskDTO>();
     }
 
     public class CreateCommentDTO
