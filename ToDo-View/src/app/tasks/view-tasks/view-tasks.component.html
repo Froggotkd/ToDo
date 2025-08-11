@@ -14,7 +14,7 @@
         <mat-icon class="empty-icon">assignment</mat-icon>
         <h2>No hay tareas disponibles</h2>
         <p>Comienza agregando una nueva tarea</p>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" routerLink="/create-task">
           <mat-icon>add</mat-icon>
           Agregar Tarea
         </button>
@@ -26,6 +26,12 @@
       </app-task-card>
       }
       }
+    </div>
+    <div class="fab-container" routerLink="/create-task">
+      <button mat-fab class="fab-button">
+        <mat-icon>add</mat-icon>
+      </button>
+      <p>Nueva Tarea</p>
     </div>
   </div>
 </div>
