@@ -22,7 +22,9 @@
                 <div class="comments-list">
                     @for (comment of comments; track comment.id) {
                     @if (!comment.parentCommentId) {
-                    <app-comment [comment]="comment" [comments]="comments" (updateComment)="onUpdate($event.id, $event.comment)" (deleteComment)="onDelete($event.id)"></app-comment>
+                    <app-comment [comment]="comment" [comments]="comments"
+                        (updateComment)="onUpdate($event.id, $event.comment)" (deleteComment)="onDelete($event.id)"
+                        (replyComment)="onReply($event.id)"></app-comment>
                     }
                     }
                 </div>
@@ -39,15 +41,20 @@
                         <textarea [formControl]="commentControl" matInput placeholder="Escribe tu comentario aquí..."
                             [(ngModel)]="editingCommentText"></textarea>
                     </mat-form-field>
-                    @if (!isEdit) {
-                    <button mat-raised-button class="send-button" (click)="onSend()">
+                    @if (!isEdit && !isReplyButton) {
+                    <button mat-raised-button class="send-button" (click)="onSend(false)">
                         <mat-icon>send</mat-icon>
                     </button>
-                    }@else {
+                    }@else if (isReplyButton) {
+                    <button mat-raised-button class="send-button" (click)="onSend(true)">
+                        <mat-icon>reply</mat-icon>
+                    </button>
+                    }@else if (isEdit && !isReplyButton) {
                     <button mat-raised-button class="send-button" (click)="onSaveUpdate()">
                         <mat-icon>edit</mat-icon>
                     </button>
                     }
+
                 </div>
             </div>
         </div>

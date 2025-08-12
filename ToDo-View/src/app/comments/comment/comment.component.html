@@ -24,7 +24,7 @@
                 <mat-icon>delete</mat-icon>
                 <span>Eliminar</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onReplyClick(comment.id)">
                 <mat-icon>reply</mat-icon>
                 <span>Responder</span>
             </button>
@@ -37,7 +37,7 @@
     <div class="replies-container">
         @for (reply of replies; track reply.id) {
         <app-comment [comment]="reply" [comments]="comments" (updateComment)="updateComment.emit($event)"
-            (deleteComment)="deleteComment.emit($event)">
+            (deleteComment)="deleteComment.emit($event)" (replyComment)="onReplyClick($event.id)">
         </app-comment>
         }
     </div>

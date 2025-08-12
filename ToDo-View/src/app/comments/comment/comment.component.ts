@@ -3,7 +3,6 @@ import { Comments, CommentsService } from '../../../services/comments-service';
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenu, MatMenuModule } from "@angular/material/menu";
 import { CommonModule } from '@angular/common';
-import { Observable, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,23 +25,22 @@ export class CommentComponent implements OnInit {
     id = this.comment.id;
     comment = this.comment.comment;
     this.updateComment.emit({ id, comment });
-    this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
-      this.router.navigate([this.currentUrl]);
-    });
   }
 
   @Output() deleteComment = new EventEmitter<{ id: number }>();
   onDeleteClick(id: number) {
     id = this.comment.id;
     this.deleteComment.emit({ id });
-    this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
-      this.router.navigate([this.currentUrl]);
-    });
+  }
+
+  @Output() replyComment = new EventEmitter<{ id: number }>();
+  onReplyClick(id: number) {
+    id = this.comment.id;
+    this.replyComment.emit({ id });
   }
 
   ngOnInit() {
     this.getReplies();
-    this.currentUrl = this.router.url;
   }
 
   getReplies(): void {

@@ -12,7 +12,7 @@ export interface Comments {
 export interface CommentsWrite {
   comment: string;
   isUpdated: boolean;
-  parentId: number;
+  parentCommentId: number;
   taskId: number;
 }
 
@@ -53,6 +53,7 @@ export class CommentsService {
   }
 
   addComment(comment: CommentsWrite): Observable<CommentsWrite> {
+    console.log(comment)
     return this.httpClient.post<CommentsWrite>(this.baseUrl, comment);
   }
 

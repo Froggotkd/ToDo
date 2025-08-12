@@ -19,7 +19,7 @@ export interface Comments {
   id: number;
   comment: string;
   isUpdated: boolean;
-  parentCommentId: number|-1;
+  parentCommentId: number | -1;
 }
 
 @Component({
@@ -38,6 +38,9 @@ export class ViewCommentsComponent implements OnInit {
   isEdit: boolean = false;
   editingCommentId: number | -1 = -1;
   editingCommentText: string = '';
+
+  isReplyButton: boolean = false;
+  replyingCommentId: number | -1 = -1;
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -66,30 +69,45 @@ export class ViewCommentsComponent implements OnInit {
     return this.task!;
   }
 
-    commentsMapped: Comments[] = [];
+  commentsMapped: Comments[] = [];
 
   getCommentsFromTask(taskId: number): Comments[] {
-    
+
     this.commentsService.getComments(taskId).subscribe({
       next: (data) => (this.comments = data),
       error: (err) => console.error('Error al cargar tareas', err)
     });
-    
+
     return this.comments;
   }
 
-  onSend(): void {
+  onReply(id: number): void {
+    this.isReplyButton = true;
+    this.replyingCommentId = id;
+    console.log(id, this.replyingCommentId)
+  }
+
+  onSend(isReply: boolean): void {
     const text = this.commentControl.value?.trim();
+    var comment: CommentsWrite;
     console.log(text)
     if (!text) return;
     try {
-      const comment: CommentsWrite = {
-        comment: text,
-        taskId: this.taskId,
-        isUpdated: false,
-        parentId: -1
-      };
-
+      if (!isReply) {
+        comment = {
+          comment: text,
+          taskId: this.taskId,
+          isUpdated: false,
+          parentCommentId: -1
+        };
+      } else {
+        comment = {
+          comment: text,
+          taskId: this.taskId,
+          isUpdated: false,
+          parentCommentId: this.replyingCommentId
+        };
+      }
       console.log(comment)
       this.commentsService.addComment(comment).subscribe(() => {
         this.commentControl.reset();
@@ -99,7 +117,8 @@ export class ViewCommentsComponent implements OnInit {
       console.error('Error al enviar el comentario', error);
       alert('Error al enviar el comentario. Por favor, inténtalo de nuevo más tarde.');
     }
-
+    this.isReplyButton = false;
+    this.getCommentsFromTask(this.taskId)
   }
 
   onUpdate(id: number, comment: string): void {
@@ -150,6 +169,7 @@ export class ViewCommentsComponent implements OnInit {
       );
     }
   }
+
 }
 
 
