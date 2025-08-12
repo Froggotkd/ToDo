@@ -21,8 +21,9 @@
       </div>
       } @else {
       @for (task of tasks; track task.id) {
+
       <app-task-card [id]="task.id" [titulo]="task.title" [descripcion]="task.description"
-        [completado]="task.isCompleted" [@fadeInOut]>
+        [completado]="task.isCompleted" [@fadeInOut] >
       </app-task-card>
       }
       }

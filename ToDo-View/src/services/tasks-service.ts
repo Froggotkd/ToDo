@@ -47,6 +47,15 @@ export class TasksService{
         throw error;
       })
     );
+  }
 
+  getTask(id:number):Observable<Tasks>{
+    return this.httpClient.get<Tasks>(`${this.baseUrl}/${id}`).pipe(
+      catchError((error) => {
+        if(error.status === 404) {
+          console.error('Tasks not found', error);
+        }
+        throw error;
+      }))
   }
 }

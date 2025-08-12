@@ -6,6 +6,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TaskFormComponent } from '../task-form/task-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-tasks',
@@ -50,8 +51,7 @@ export class ViewTasksComponent implements OnInit {
         task: task       
       }
     });
-
-
-
   }
+  
+  
 }

@@ -1,0 +1,46 @@
+<div class="background">
+    <div class="container">
+        <div class="task-details-container">
+            <div class="task-info">
+                <h1 class="task-title">{{ task?.title }}</h1>
+                <p class="task-description">{{ task?.description }}</p>
+                
+                <div class="task-meta">
+                    <span class="status-badge" [class.completed]="task?.isCompleted">
+                        {{ task?.isCompleted ? 'Completed' : 'Pending' }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h2 class="comments-header">
+                    <mat-icon>comment</mat-icon>
+                    Comments 
+                </h2>
+                
+                <div class="comments-list" *ngIf="comments.length >0; else noComments">
+                    <div class="comment" *ngFor="let comment of comments">
+                        <p class="comment-text">{{ comment.comment }}</p>
+                    </div>
+                </div>
+
+                <ng-template #noComments>
+                    <div class="no-comments">
+                        <mat-icon>sentiment_dissatisfied</mat-icon>
+                        <p>No hay comentarios aún. Añade uno</p>
+                    </div>
+                </ng-template>
+
+                <div class="add-comment">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Añade un comentario</mat-label>
+                        <textarea  matInput placeholder="Escribe tu comentario aquí..."></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button class="send-button" >
+                        <mat-icon>send</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

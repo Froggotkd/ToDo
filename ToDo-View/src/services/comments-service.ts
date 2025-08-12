@@ -1,0 +1,29 @@
+import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { catchError, Observable } from 'rxjs';
+
+export interface Comments {
+  id: number;
+  comment: string;
+  isUpdated: boolean;
+}
+
+@Injectable({
+    providedIn: 'root'
+})
+
+export class CommentsService{
+    constructor(private httpClient: HttpClient){}
+
+    private baseUrl = 'https://localhost:7243/api/Comment'
+
+    getComments(id:number):Observable<Comments[]>{
+        return this.httpClient.get<Comments[]>(`${this.baseUrl}/${id}`).pipe(
+          catchError((error) => {
+            if(error.status === 404) {
+              console.error('Tasks not found', error);
+            }
+            throw error;
+          }))
+      }
+}

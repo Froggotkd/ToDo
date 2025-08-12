@@ -83,4 +83,8 @@ export class TaskCardComponent {
       );
     }
   }
+
+  onSeeComments(taskId: number): void {
+    this.router.navigate(['comment', taskId]);
+  }
 }
