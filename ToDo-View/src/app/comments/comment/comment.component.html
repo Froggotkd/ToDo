@@ -1,0 +1,45 @@
+<div class="comment-header">
+
+    <div class="header-left">
+        <p class="comment-text">{{ comment.comment }}</p>
+        @if(comment.isUpdated){
+        <span class="updated-badge">Actualizado</span>
+        }@else{
+        <span class="updated-badge">Sin actualizar</span>
+        }
+    </div>
+
+
+
+    <div class="header-right">
+        <button mat-icon-button [matMenuTriggerFor]="commentMenu" class="menu-button">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #commentMenu="matMenu">
+            <button mat-menu-item (click)="onUpdateClick(comment.id, comment.comment)">
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+            </button>
+            <button mat-menu-item (click)="onDeleteClick(comment.id)">
+                <mat-icon>delete</mat-icon>
+                <span>Eliminar</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>reply</mat-icon>
+                <span>Responder</span>
+            </button>
+        </mat-menu>
+    </div>
+
+</div>
+<div class="replies" style="margin-left: 2px;">
+    @if (replies.length > 0) {
+    <div class="replies-container">
+        @for (reply of replies; track reply.id) {
+        <app-comment [comment]="reply" [comments]="comments" (updateComment)="updateComment.emit($event)"
+            (deleteComment)="deleteComment.emit($event)">
+        </app-comment>
+        }
+    </div>
+    }
+</div>

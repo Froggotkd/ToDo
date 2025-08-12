@@ -1,0 +1,223 @@
+.background {
+    position: relative;
+    height: 100%;
+}
+
+.background::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://media.istockphoto.com/id/615101444/photo/sunbeams-in-dark-and-foggy-autumn-forest.jpg?s=612x612&w=0&k=20&c=p98_vuWBCUiC-vH4EyifqCcS5XWoU5o6u4XOWmL86qM=');
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    max-height: fit-content;
+}
+
+.task-details-container {
+    display: flex;
+    gap: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.task-info {
+    flex: 0.4;
+    padding-right: 0px;
+    margin-right: 0px;
+    border-right: 1px solid #eee;
+}
+
+
+.updated-badge {
+    background: #ffc107;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: auto;
+    text-transform: uppercase;
+}
+
+.menu-button {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.menu-button mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.mat-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.mat-menu-item mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.task-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.task-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.task-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: #ffeb3b;
+    color: #000;
+}
+
+.status-badge.completed {
+    background: #4caf50;
+    color: white;
+}
+
+
+.comments-section {
+    flex: 1;
+    max-width: 600px;
+}
+
+
+.comments-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.comment {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin:0px;
+    padding:0px;
+    align-items: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.header-left p{
+    margin: 0px;
+    padding: 0px;
+}
+.comment-text {
+    color: #555;
+    line-height: 1.5;
+}
+
+.no-comments {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+}
+
+.no-comments mat-icon {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0px;
+}
+
+.add-comment {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.send-button {
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.replies {
+  margin-left: 16px; 
+  border-left: 2px solid #e0e0e0; 
+  padding-left: 12px;
+}
+
+.replies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; 
+}
+
+.replies-container app-comment {
+  background-color: #fafafa; 
+  border-radius: 6px;
+  padding: 8px;
+}
+
+
+
+@media (max-width: 768px) {
+    .task-details-container {
+        flex-direction: column;
+    }
+
+    .task-info {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .comments-section {
+        max-width: 100%;
+    }
+}

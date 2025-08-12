@@ -21,37 +21,9 @@
                 @if(comments.length >0){
                 <div class="comments-list">
                     @for (comment of comments; track comment.id) {
-                    <div class="comment-header">
-
-                        <div class="header-left">
-                            <p class="comment-text">{{ comment.comment }}</p>
-                            @if(comment.isUpdated){
-                            <span class="updated-badge">Actualizado</span>
-                            }@else{
-                            <span class="updated-badge">Sin actualizar</span>
-                            }
-                        </div>
-
-                        <div class="header-right">
-                            <button mat-icon-button [matMenuTriggerFor]="commentMenu" class="menu-button">
-                                <mat-icon>more_vert</mat-icon>
-                            </button>
-                            <mat-menu #commentMenu="matMenu">
-                                <button mat-menu-item (click)="onUpdate(comment.id, comment.comment)">
-                                    <mat-icon>edit</mat-icon>
-                                    <span>Editar</span>
-                                </button>
-                                <button mat-menu-item (click)="onDelete(comment.id)">
-                                    <mat-icon>delete</mat-icon>
-                                    <span>Eliminar</span>
-                                </button>
-                                <button mat-menu-item>
-                                    <mat-icon>reply</mat-icon>
-                                    <span>Responder</span>
-                                </button>
-                            </mat-menu>
-                        </div>
-                    </div>
+                    @if (!comment.parentCommentId) {
+                    <app-comment [comment]="comment" [comments]="comments" (updateComment)="onUpdate($event.id, $event.comment)" (deleteComment)="onDelete($event.id)"></app-comment>
+                    }
                     }
                 </div>
                 }@else {

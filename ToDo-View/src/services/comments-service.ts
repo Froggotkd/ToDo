@@ -6,6 +6,7 @@ export interface Comments {
   id: number;
   comment: string;
   isUpdated: boolean;
+  parentCommentId: number;
 }
 
 export interface CommentsWrite {
@@ -33,6 +34,16 @@ export class CommentsService {
 
   getComments(id: number): Observable<Comments[]> {
     return this.httpClient.get<Comments[]>(`${this.baseUrl}/${id}`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          console.error('Tasks not found', error);
+        }
+        throw error;
+      }))
+  }
+
+  getReplies(id: number): Observable<Comments[]> {
+    return this.httpClient.get<Comments[]>(`${this.baseUrl}/replies/${id}`).pipe(
       catchError((error) => {
         if (error.status === 404) {
           console.error('Tasks not found', error);

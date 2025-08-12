@@ -7,6 +7,7 @@ import { CommentsService, CommentsUpdate, CommentsWrite } from '../../../service
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
+import { CommentComponent } from "../comment/comment.component";
 
 export interface Tasks {
   id: number;
@@ -18,11 +19,12 @@ export interface Comments {
   id: number;
   comment: string;
   isUpdated: boolean;
+  parentCommentId: number|-1;
 }
 
 @Component({
   selector: 'app-view-comments',
-  imports: [MatIconModule, MatInputModule, MatMenuModule, ReactiveFormsModule, FormsModule],
+  imports: [MatIconModule, MatInputModule, MatMenuModule, ReactiveFormsModule, FormsModule, CommentComponent],
   templateUrl: './view-comments.component.html',
   styleUrl: './view-comments.component.css'
 })
@@ -64,11 +66,15 @@ export class ViewCommentsComponent implements OnInit {
     return this.task!;
   }
 
+    commentsMapped: Comments[] = [];
+
   getCommentsFromTask(taskId: number): Comments[] {
+    
     this.commentsService.getComments(taskId).subscribe({
       next: (data) => (this.comments = data),
       error: (err) => console.error('Error al cargar tareas', err)
     });
+    
     return this.comments;
   }
 
@@ -108,28 +114,28 @@ export class ViewCommentsComponent implements OnInit {
     const updatedComment: CommentsUpdate = {
       id: this.editingCommentId,
       comment: this.editingCommentText,
-      isUpdated: true,         
-      parentId: -1,      
+      isUpdated: true,
+      parentId: -1,
     };
 
     this.commentsService.updateComment(this.editingCommentId, updatedComment)
-    .subscribe({
-      next: (result) => {
-        console.log('Comment updated', result);
-        this.isEdit = false;
-        this.editingCommentId = -1;
-        this.editingCommentText = '';
-        this.getCommentsFromTask(this.taskId);
-      },
-      error: (err) => {
-        console.error('Error updating comment', err);
-      }
-    });
+      .subscribe({
+        next: (result) => {
+          console.log('Comment updated', result);
+          this.isEdit = false;
+          this.editingCommentId = -1;
+          this.editingCommentText = '';
+          this.getCommentsFromTask(this.taskId);
+        },
+        error: (err) => {
+          console.error('Error updating comment', err);
+        }
+      });
 
     this.isEdit = false;
   }
 
-    onDelete(id: number): void {
+  onDelete(id: number): void {
     if (confirm('¿Estás seguro de eliminar esta tarea?')) {
       const request$ = this.commentsService.deleteComment(id);
 
