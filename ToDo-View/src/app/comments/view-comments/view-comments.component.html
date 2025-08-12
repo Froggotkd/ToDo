@@ -15,7 +15,7 @@
             <div class="comments-section">
                 <h2 class="comments-header">
                     <mat-icon>comment</mat-icon>
-                    Commentarios ({{comments.length}})
+                    Comentarios ({{comments.length}})
                 </h2>
                 
                 <div class="comments-list" *ngIf="comments.length >0; else noComments">
@@ -34,9 +34,9 @@
                 <div class="add-comment">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Añade un comentario</mat-label>
-                        <textarea  matInput placeholder="Escribe tu comentario aquí..."></textarea>
+                        <textarea [formControl]="commentControl"   matInput placeholder="Escribe tu comentario aquí..." ></textarea>
                     </mat-form-field>
-                    <button mat-raised-button class="send-button" >
+                    <button mat-raised-button class="send-button" (click)="onSend()" >
                         <mat-icon>send</mat-icon>
                     </button>
                 </div>

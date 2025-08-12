@@ -8,22 +8,33 @@ export interface Comments {
   isUpdated: boolean;
 }
 
+export interface CommentsWrite {
+  comment: string;
+  isUpdated: boolean;
+  parentId: number;
+  taskId: number;
+}
+
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
-export class CommentsService{
-    constructor(private httpClient: HttpClient){}
+export class CommentsService {
+  constructor(private httpClient: HttpClient) { }
 
-    private baseUrl = 'https://localhost:7243/api/Comment'
+  private baseUrl = 'https://localhost:7243/api/Comment'
 
-    getComments(id:number):Observable<Comments[]>{
-        return this.httpClient.get<Comments[]>(`${this.baseUrl}/${id}`).pipe(
-          catchError((error) => {
-            if(error.status === 404) {
-              console.error('Tasks not found', error);
-            }
-            throw error;
-          }))
-      }
+  getComments(id: number): Observable<Comments[]> {
+    return this.httpClient.get<Comments[]>(`${this.baseUrl}/${id}`).pipe(
+      catchError((error) => {
+        if (error.status === 404) {
+          console.error('Tasks not found', error);
+        }
+        throw error;
+      }))
+  }
+
+  addComment(comment: CommentsWrite): Observable<CommentsWrite> {
+    return this.httpClient.post<CommentsWrite>(this.baseUrl, comment);
+  }
 }

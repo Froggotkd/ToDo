@@ -43,7 +43,6 @@ export interface Task {
 })
 export class TaskCardComponent {
 
-
   @Input() id: number = 0;
   @Input() titulo: string = '';
   @Input() descripcion: string = '';
