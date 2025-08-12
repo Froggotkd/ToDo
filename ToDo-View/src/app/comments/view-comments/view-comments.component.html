@@ -7,7 +7,7 @@
                 
                 <div class="task-meta">
                     <span class="status-badge" [class.completed]="task?.isCompleted">
-                        {{ task?.isCompleted ? 'Completed' : 'Pending' }}
+                        {{ task?.isCompleted ? 'Completada' : 'Pendiente' }}
                     </span>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="comments-section">
                 <h2 class="comments-header">
                     <mat-icon>comment</mat-icon>
-                    Comments 
+                    Commentarios ({{comments.length}})
                 </h2>
                 
                 <div class="comments-list" *ngIf="comments.length >0; else noComments">
