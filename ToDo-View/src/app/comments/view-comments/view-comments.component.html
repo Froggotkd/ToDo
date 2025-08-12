@@ -4,7 +4,7 @@
             <div class="task-info">
                 <h1 class="task-title">{{ task?.title }}</h1>
                 <p class="task-description">{{ task?.description }}</p>
-                
+
                 <div class="task-meta">
                     <span class="status-badge" [class.completed]="task?.isCompleted">
                         {{ task?.isCompleted ? 'Completada' : 'Pendiente' }}
@@ -17,26 +17,57 @@
                     <mat-icon>comment</mat-icon>
                     Comentarios ({{comments.length}})
                 </h2>
-                
-                <div class="comments-list" *ngIf="comments.length >0; else noComments">
-                    <div class="comment" *ngFor="let comment of comments">
-                        <p class="comment-text">{{ comment.comment }}</p>
-                    </div>
-                </div>
 
-                <ng-template #noComments>
-                    <div class="no-comments">
-                        <mat-icon>sentiment_dissatisfied</mat-icon>
-                        <p>No hay comentarios aún. Añade uno</p>
+                @if(comments.length >0){
+                <div class="comments-list">
+                    @for (comment of comments; track comment.id) {
+                    <div class="comment-header">
+
+                        <div class="header-left">
+                            <p class="comment-text">{{ comment.comment }}</p>
+                            @if(comment.isUpdated){
+                            <span class="updated-badge">Actualizado</span>
+                            }@else{
+                            <span class="updated-badge">Sin actualizar</span>
+                            }
+                        </div>
+
+                        <div class="header-right">
+                            <button mat-icon-button [matMenuTriggerFor]="commentMenu" class="menu-button">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #commentMenu="matMenu">
+                                <button mat-menu-item>
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Update</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>delete</mat-icon>
+                                    <span>Delete</span>
+                                </button>
+                                <button mat-menu-item>
+                                    <mat-icon>reply</mat-icon>
+                                    <span>Reply</span>
+                                </button>
+                            </mat-menu>
+                        </div>
                     </div>
-                </ng-template>
+                    }
+                </div>
+                }@else {
+                <div class="no-comments">
+                    <mat-icon>sentiment_dissatisfied</mat-icon>
+                    <p>No hay comentarios aún. Añade uno</p>
+                </div>
+                }
 
                 <div class="add-comment">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Añade un comentario</mat-label>
-                        <textarea [formControl]="commentControl"   matInput placeholder="Escribe tu comentario aquí..." ></textarea>
+                        <textarea [formControl]="commentControl" matInput
+                            placeholder="Escribe tu comentario aquí..."></textarea>
                     </mat-form-field>
-                    <button mat-raised-button class="send-button" (click)="onSend()" >
+                    <button mat-raised-button class="send-button" (click)="onSend()">
                         <mat-icon>send</mat-icon>
                     </button>
                 </div>

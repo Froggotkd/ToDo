@@ -18,7 +18,7 @@
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     max-height: fit-content;
@@ -34,9 +34,47 @@
 }
 
 .task-info {
-    flex: 1;
-    padding-right: 30px;
+    flex: 0.4;
+    padding-right: 0px;
+    margin-right: 0px;
     border-right: 1px solid #eee;
+}
+
+
+.updated-badge {
+    background: #ffc107;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: auto;
+    text-transform: uppercase;
+}
+
+.menu-button {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.menu-button mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.mat-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.mat-menu-item mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
 }
 
 .task-title {
@@ -72,54 +110,41 @@
     color: white;
 }
 
-.creation-date {
-    font-size: 0.9rem;
-    color: #777;
-}
 
 .comments-section {
     flex: 1;
-    max-width: 500px;
+    max-width: 600px;
 }
 
-.comments-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
-}
 
 .comments-list {
     max-height: 400px;
     overflow-y: auto;
-    padding-right: 10px;
+    padding: 20px;
 }
 
 .comment {
     background: #f9f9f9;
     border-radius: 8px;
-    padding: 0px 15px;
-    margin-bottom: 5px;
+    padding: 12px;
+    margin-bottom: 12px;
+    position: relative;
 }
 
 .comment-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
+    margin:0px;
+    padding:0px;
+    align-items: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
 }
 
-.comment-author {
-    font-weight: 500;
-    color: #333;
+.header-left p{
+    margin: 0px;
+    padding: 0px;
 }
-
-.comment-date {
-    color: #777;
-}
-
 .comment-text {
     color: #555;
     line-height: 1.5;

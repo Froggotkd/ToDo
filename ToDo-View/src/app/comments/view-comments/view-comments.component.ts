@@ -3,9 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../../../services/tasks-service';
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
-import { NgFor, NgIf } from '@angular/common';
 import { CommentsService, CommentsWrite } from '../../../services/comments-service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+import { NgIf } from '@angular/common';
 
 export interface Tasks {
   id: number;
@@ -21,7 +22,7 @@ export interface Comments {
 
 @Component({
   selector: 'app-view-comments',
-  imports: [MatIconModule, MatInputModule, NgIf, NgFor, ReactiveFormsModule, FormsModule],
+  imports: [MatIconModule, MatInputModule, MatMenuModule, ReactiveFormsModule, FormsModule],
   templateUrl: './view-comments.component.html',
   styleUrl: './view-comments.component.css'
 })
