@@ -48,4 +48,15 @@ export class CommentsService {
   updateComment(id: number, comment: CommentsUpdate): Observable<CommentsUpdate> {
     return this.httpClient.put<CommentsUpdate>(`${this.baseUrl}/${id}`, comment);
   }
+
+  deleteComment(id: number):Observable<void>{
+    return this.httpClient.delete<void>(`${this.baseUrl}/${id}`).pipe(
+      catchError((error) => {
+        if(error.status === 404) {
+          console.error('Comment not found', error);
+        }
+        throw error;
+      })
+    );
+  }
 }

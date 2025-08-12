@@ -128,6 +128,22 @@ export class ViewCommentsComponent implements OnInit {
 
     this.isEdit = false;
   }
+
+    onDelete(id: number): void {
+    if (confirm('¿Estás seguro de eliminar esta tarea?')) {
+      const request$ = this.commentsService.deleteComment(id);
+
+      request$.subscribe({
+        next: () => {
+          this.getCommentsFromTask(this.taskId);
+        },
+        error: (error) => {
+          console.error('Error deleting task:', error);
+        }
+      }
+      );
+    }
+  }
 }
 
 

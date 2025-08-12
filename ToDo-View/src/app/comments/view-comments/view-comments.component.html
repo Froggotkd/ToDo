@@ -39,15 +39,15 @@
                             <mat-menu #commentMenu="matMenu">
                                 <button mat-menu-item (click)="onUpdate(comment.id, comment.comment)">
                                     <mat-icon>edit</mat-icon>
-                                    <span>Update</span>
+                                    <span>Editar</span>
                                 </button>
-                                <button mat-menu-item>
+                                <button mat-menu-item (click)="onDelete(comment.id)">
                                     <mat-icon>delete</mat-icon>
-                                    <span>Delete</span>
+                                    <span>Eliminar</span>
                                 </button>
                                 <button mat-menu-item>
                                     <mat-icon>reply</mat-icon>
-                                    <span>Reply</span>
+                                    <span>Responder</span>
                                 </button>
                             </mat-menu>
                         </div>
