@@ -15,6 +15,13 @@ export interface CommentsWrite {
   taskId: number;
 }
 
+export interface CommentsUpdate {
+  id: number;
+  comment: string;
+  isUpdated: boolean;
+  parentId: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,5 +43,9 @@ export class CommentsService {
 
   addComment(comment: CommentsWrite): Observable<CommentsWrite> {
     return this.httpClient.post<CommentsWrite>(this.baseUrl, comment);
+  }
+
+  updateComment(id: number, comment: CommentsUpdate): Observable<CommentsUpdate> {
+    return this.httpClient.put<CommentsUpdate>(`${this.baseUrl}/${id}`, comment);
   }
 }

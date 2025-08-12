@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from '../../../services/tasks-service';
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
-import { CommentsService, CommentsWrite } from '../../../services/comments-service';
+import { CommentsService, CommentsUpdate, CommentsWrite } from '../../../services/comments-service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { NgIf } from '@angular/common';
 
 export interface Tasks {
@@ -32,6 +32,10 @@ export class ViewCommentsComponent implements OnInit {
   task: Tasks | null = null;
   comments: Comments[] = [];
   commentControl = new FormControl('');
+
+  isEdit: boolean = false;
+  editingCommentId: number | -1 = -1;
+  editingCommentText: string = '';
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -85,11 +89,45 @@ export class ViewCommentsComponent implements OnInit {
         this.commentControl.reset();
         this.getCommentsFromTask(this.taskId);
       });
-    } catch(error){
+    } catch (error) {
       console.error('Error al enviar el comentario', error);
       alert('Error al enviar el comentario. Por favor, inténtalo de nuevo más tarde.');
     }
-    
+
   }
 
+  onUpdate(id: number, comment: string): void {
+    this.isEdit = true;
+    this.editingCommentId = id;
+    this.editingCommentText = comment;
+  }
+
+  onSaveUpdate(): void {
+    if (this.editingCommentText.trim() === '') return;
+
+    const updatedComment: CommentsUpdate = {
+      id: this.editingCommentId,
+      comment: this.editingCommentText,
+      isUpdated: true,         
+      parentId: -1,      
+    };
+
+    this.commentsService.updateComment(this.editingCommentId, updatedComment)
+    .subscribe({
+      next: (result) => {
+        console.log('Comment updated', result);
+        this.isEdit = false;
+        this.editingCommentId = -1;
+        this.editingCommentText = '';
+        this.getCommentsFromTask(this.taskId);
+      },
+      error: (err) => {
+        console.error('Error updating comment', err);
+      }
+    });
+
+    this.isEdit = false;
+  }
 }
+
+

@@ -37,7 +37,7 @@
                                 <mat-icon>more_vert</mat-icon>
                             </button>
                             <mat-menu #commentMenu="matMenu">
-                                <button mat-menu-item>
+                                <button mat-menu-item (click)="onUpdate(comment.id, comment.comment)">
                                     <mat-icon>edit</mat-icon>
                                     <span>Update</span>
                                 </button>
@@ -64,12 +64,18 @@
                 <div class="add-comment">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Añade un comentario</mat-label>
-                        <textarea [formControl]="commentControl" matInput
-                            placeholder="Escribe tu comentario aquí..."></textarea>
+                        <textarea [formControl]="commentControl" matInput placeholder="Escribe tu comentario aquí..."
+                            [(ngModel)]="editingCommentText"></textarea>
                     </mat-form-field>
+                    @if (!isEdit) {
                     <button mat-raised-button class="send-button" (click)="onSend()">
                         <mat-icon>send</mat-icon>
                     </button>
+                    }@else {
+                    <button mat-raised-button class="send-button" (click)="onSaveUpdate()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    }
                 </div>
             </div>
         </div>
